@@ -51,7 +51,7 @@ if TYPE_CHECKING:
     VLLM_IMAGE_FETCH_TIMEOUT: int = 5
     VLLM_VIDEO_FETCH_TIMEOUT: int = 15
     VLLM_AUDIO_FETCH_TIMEOUT: int = 10
-    VLLM_TARGET_DEVICE: str = "cuda"
+    VLLM_TARGET_DEVICE: str = "cpu"
     MAX_JOBS: Optional[str] = None
     NVCC_THREADS: Optional[str] = None
     VLLM_USE_PRECOMPILED: bool = False
@@ -101,7 +101,7 @@ environment_variables: Dict[str, Callable[[], Any]] = {
     # Target device of vLLM, supporting [cuda (by default),
     # rocm, neuron, cpu, openvino]
     "VLLM_TARGET_DEVICE":
-    lambda: os.getenv("VLLM_TARGET_DEVICE", "cuda"),
+    lambda: os.getenv("VLLM_TARGET_DEVICE", "cpu"),
 
     # Maximum number of compilation jobs to run in parallel.
     # By default this is the number of CPUs

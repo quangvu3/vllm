@@ -31,7 +31,8 @@ logger = logging.getLogger(__name__)
 #  which is not installed yet
 envs = load_module_from_path('envs', os.path.join(ROOT_DIR, 'vllm', 'envs.py'))
 
-VLLM_TARGET_DEVICE = envs.VLLM_TARGET_DEVICE
+# VLLM_TARGET_DEVICE = envs.VLLM_TARGET_DEVICE
+VLLM_TARGET_DEVICE = 'cpu'
 
 if not sys.platform.startswith("linux"):
     logger.warning(
